@@ -7,3 +7,4 @@ dependencies:
   - file
   - image
   - node
+  - views_slideshow
