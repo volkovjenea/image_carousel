@@ -1,16 +1,14 @@
-uuid: 6aef26b6-9943-4fd3-8902-a942fd1432b1
 langcode: en
 status: true
 dependencies:
   config:
-  - field.storage.node.field_slideshow
-  - image.style.large
-  - node.type.event
+    - field.storage.node.field_slideshow
+    - image.style.large
   module:
-  - image
-  - node
-  - user
-  - views_slideshow
+    - image
+    - node
+    - user
+    - views_slideshow
 id: slideshow
 label: Slideshow
 module: views
@@ -272,25 +270,43 @@ display:
           plugin_id: field
       filters:
         status:
-          value: '1'
+          id: status
           table: node_field_data
           field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
           plugin_id: boolean
           entity_type: node
           entity_field: status
-          id: status
-          expose:
-            operator: ''
-          group: 1
-        type:
-          id: type
-          table: node_field_data
-          field: type
-          value:
-            event: event
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
       sorts:
         created:
           id: created
@@ -350,16 +366,20 @@ display:
           entity_field: nid
           plugin_id: node_nid
       display_extenders: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:
-      - 'languages:language_content'
-      - 'languages:language_interface'
-      - url
-      - 'user.node_grants:view'
-      - user.permissions
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - 'user.node_grants:view'
+        - user.permissions
       tags:
-      - 'config:field.storage.node.field_slideshow'
+        - 'config:field.storage.node.field_slideshow'
   block_1:
     display_plugin: block
     id: block_1
@@ -367,13 +387,16 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
+      block_category: 'Lists (Views)'
+      allow:
+        items_per_page: true
     cache_metadata:
       max-age: -1
       contexts:
-      - 'languages:language_content'
-      - 'languages:language_interface'
-      - url
-      - 'user.node_grants:view'
-      - user.permissions
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - 'user.node_grants:view'
+        - user.permissions
       tags:
-      - 'config:field.storage.node.field_slideshow'
+        - 'config:field.storage.node.field_slideshow'
